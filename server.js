@@ -40,6 +40,8 @@ app.get("/", (req, res) => {
 app.get("/api/users/:id/profile", async (req, res) => {
   Sentry.logger.info("Fetching user profile", { userId: req.params.id });
   const user = users.find((u) => u.id === Number(req.params.id));
+  if (!user) return res.status(404).json({ error: "user not found" });
+  if (!user.profile) return res.status(404).json({ error: "profile not found" });
   res.json({ name: user.name, email: user.profile.email });
 });
 
