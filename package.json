@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-sentry-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --env-file=.env --watch server.js"
+  },
+  "dependencies": {
+    "@sentry/node": "^10.75.0",
+    "@sentry/profiling-node": "^10.75.0",
+    "express": "^5.1.0"
+  }
+}
